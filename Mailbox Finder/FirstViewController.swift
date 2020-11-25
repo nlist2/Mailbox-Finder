@@ -9,12 +9,14 @@
 import UIKit
 import MapKit
 import CoreLocation
+import SQLite3
 
 class FirstViewController: UIViewController, CLLocationManagerDelegate {
 
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mainMap: MKMapView!
+    var db: 
     
     override func viewDidLoad() {
         super.viewDidLoad()

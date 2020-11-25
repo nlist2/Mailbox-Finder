@@ -49,10 +49,12 @@ for box in result_box.find_all("div", {"class": "list-item-location popover-trig
     sun = store_hours.split("Sun")[1]
 
     #print("Latitude = {}, Longitude = {}".format(location.latitude, location.longitude))
-
-    command = "INSERT INTO boxes (address, lat, long, mon_fri, sat, sun) VALUES (?, ?, ?, ?, ?, ?);"
-    c.execute(command, (str(address), location.latitude, location.longitude, str(mon_fri), str(sat), str(sun)))
-    conn.commit()
+    try:
+        command = "INSERT INTO boxes (address, lat, long, mon_fri, sat, sun) VALUES (?, ?, ?, ?, ?, ?);"
+        c.execute(command, (str(address), location.latitude, location.longitude, str(mon_fri), str(sat), str(sun)))
+        conn.commit()
+    except AttributeError:
+        pass
     
 # div with id=resultBox has the rest of the results
 result_box2 = soup.find("div", {"id": "resultBox2"})
@@ -67,9 +69,12 @@ for box in result_box2.find_all("div", {"class": "list-item-location popover-tri
 
     #print("Latitude = {}, Longitude = {}".format(location.latitude, location.longitude))
 
-    command = "INSERT INTO boxes (address, lat, long, mon_fri, sat, sun) VALUES (?, ?, ?, ?, ?, ?);"
-    c.execute(command, (str(address), location.latitude, location.longitude, str(mon_fri), str(sat), str(sun)))
-    conn.commit()
+    try:
+        command = "INSERT INTO boxes (address, lat, long, mon_fri, sat, sun) VALUES (?, ?, ?, ?, ?, ?);"
+        c.execute(command, (str(address), location.latitude, location.longitude, str(mon_fri), str(sat), str(sun)))
+        conn.commit()
+    except AttributeError:
+        pass
     
  
 browser.quit()
