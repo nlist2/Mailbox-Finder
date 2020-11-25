@@ -5,22 +5,42 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+from selenium import webdriver as driver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.firefox.options import Options
 
+# defining the webdriver as a headless Firefox
+options = Options()
+options.headless = True
+browser = driver.Firefox(options=options)
 
-# Creating a session (starting a server) and having that server go to the USPS website
-sess = requests.Session()
-usps_lin = "https://tools.usps.com/find-location.htm?address=60637&locationType=collectionbox&searchRadius=5&utm_source=google-my-business-url&utm_medium=search&utm_campaign=yext"
-usps_link = "https://tools.usps.com/find-location.htm?address=60637&locationType=collectionbox"
-specs = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
-r = sess.get(usps_link, headers = specs)
+# Webdriver going to our link
+usps_link = "https://tools.usps.com/find-location.htm?address=60637&locationType=collectionbox&searchRadius=1000"
+browser.get(usps_link)
 
-# If the url exists, parse the html contents
-if r.status_code == 200:
-    soup = BeautifulSoup(r.content, "html.parser")
-    print(soup.result)
+# Implicitly wait for dynamically generated addresses (requests couldn't handle the dynamically generated info from what I know)
+try:
+    element = WebDriverWait(browser, 5).until(
+        EC.presence_of_element_located((By.CLASS_NAME, "list-item-location.popover-trigger"))
+    )
+    # After element is found, save the html and use BeautifulSoup to parse it
+    html = browser.page_source
+    soup = BeautifulSoup(html, "html.parser")
+
+    # div with id=resultBox has the first 10 (visible results)
     result_box = soup.find("div", {"id": "resultBox"})
-    print(result_box.text)
-    for result in result_box:
-        print(result.text)
-else: 
-    print("Status code not 200 // Some error")
+    for box in result_box.find_all("div", {"class": "list-item-location popover-trigger"}):
+        print(box.find("p", {"class": "address"}).text + "\n" + box.find("div", {"class": "store-hours"}).text)
+    
+    # div with id=resultBox has the rest of the results
+    result_box2 = soup.find("div", {"id": "resultBox2"})
+    for box in result_box2.find_all("div", {"class": "list-item-location popover-trigger"}):
+        print(box.find("p", {"class": "address"}).text + "\n" + box.find("div", {"class": "store-hours"}).text)
+
+except:
+    print("No results found.")
+    
+browser.quit()
+

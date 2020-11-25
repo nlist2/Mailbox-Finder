@@ -1,0 +1,38 @@
+[INFO  - 2020-11-25T19:42:58.800Z] GhostDriver - Main - running on port 56158
+[INFO  - 2020-11-25T19:42:58.867Z] Session [6be254e0-2f56-11eb-bdb9-c19791b9a03c] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2020-11-25T19:42:58.867Z] Session [6be254e0-2f56-11eb-bdb9-c19791b9a03c] - page.customHeaders:  - {}
+[INFO  - 2020-11-25T19:42:58.867Z] Session [6be254e0-2f56-11eb-bdb9-c19791b9a03c] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2020-11-25T19:42:58.867Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 6be254e0-2f56-11eb-bdb9-c19791b9a03c
+[ERROR - 2020-11-25T19:43:00.702Z] Session [6be254e0-2f56-11eb-bdb9-c19791b9a03c] - page.onError - msg: ReferenceError: Can't find variable: search
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-11-25T19:43:00.702Z] Session [6be254e0-2f56-11eb-bdb9-c19791b9a03c] - page.onError - stack:
+  (anonymous function) (https://tools.usps.com/scripts/polo/po-locator.js:1)
+  dispatch (https://tools.usps.com/scripts/libs/jquery3.min.js:2)
+  handle (https://tools.usps.com/scripts/libs/jquery3.min.js:2)
+  trigger (https://tools.usps.com/scripts/libs/jquery3.min.js:2)
+  (anonymous function) (https://tools.usps.com/scripts/libs/jquery3.min.js:2)
+  each (https://tools.usps.com/scripts/libs/jquery3.min.js:2)
+  each (https://tools.usps.com/scripts/libs/jquery3.min.js:2)
+  trigger (https://tools.usps.com/scripts/libs/jquery3.min.js:2)
+  (anonymous function) (https://tools.usps.com/scripts/polo/po-locator.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-11-25T19:43:01.308Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1606333381258
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-11-25T19:43:02.245Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1606333382204
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-11-25T19:43:03.082Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1606333383060
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-11-25T19:43:03.947Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1606333383889
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-11-25T19:43:04.779Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1606333384749
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2020-11-25T19:43:05.623Z] WebElementLocator - _handleLocateCommand - Element(s) NOT Found: GAVE UP. Search Stop Time: 1606333385581
+
+  phantomjs://platform/console++.js:263 in error
