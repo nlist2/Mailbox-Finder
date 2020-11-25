@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Importing BeautifulSoup, Requests, and Pandas
+# Importing BeautifulSoup, Requests, and Selenium
 from bs4 import BeautifulSoup
 import requests
-import pandas as pd
 from selenium import webdriver as driver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.options import Options
+from geopy import Nominatim
+
+# Initializing the geolocator to convert our addresses to lat and long
+geolocator = Nominatim(user_agent="my_user_agent")
 
 # defining the webdriver as a headless Firefox
 options = Options()
@@ -33,6 +36,8 @@ try:
     result_box = soup.find("div", {"id": "resultBox"})
     for box in result_box.find_all("div", {"class": "list-item-location popover-trigger"}):
         print(box.find("p", {"class": "address"}).text + "\n" + box.find("div", {"class": "store-hours"}).text)
+        location = geolocator.geocode(box.find("p", {"class": "address"}).text)
+        print("Latitude = {}, Longitude = {}".format(location.latitude, location.longitude))
     
     # div with id=resultBox has the rest of the results
     result_box2 = soup.find("div", {"id": "resultBox2"})
