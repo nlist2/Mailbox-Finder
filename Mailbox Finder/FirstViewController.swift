@@ -16,7 +16,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mainMap: MKMapView!
-    var db: 
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
             self.mainMap.addAnnotation(annotation)
         }
     }
-    /*
+/*
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
 
