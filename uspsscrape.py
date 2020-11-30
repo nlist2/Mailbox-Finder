@@ -4,6 +4,7 @@
 # Importing BeautifulSoup, Requests, and Selenium
 from bs4 import BeautifulSoup
 import requests
+import pandas as pd
 from selenium import webdriver as driver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -25,58 +26,67 @@ options.headless = True
 browser = driver.Firefox(options=options)
 
 # Webdriver going to our link
-usps_link = "https://tools.usps.com/find-location.htm?address=60637&locationType=collectionbox&searchRadius=1000"
-browser.get(usps_link)
+zipcodes = pd.read_csv("uszips.csv")['zip']
 
-# Implicitly wait for dynamically generated addresses (requests couldn't handle the dynamically generated info from what I know)
+for zipcode in zipcodes:
+    if(len(str(zipcode)) == 3):
+        zipcode = "00" + str(zipcode)
+    elif(len(str(zipcode)) == 4):
+        zipcode = "0" + str(zipcode)
+    usps_link = "https://tools.usps.com/find-location.htm?address=" + str(zipcode) + "&locationType=collectionbox&searchRadius=100"
+    browser.get(usps_link)
+    print(zipcode)
 
-element = WebDriverWait(browser, 5).until(
-    EC.presence_of_element_located((By.CLASS_NAME, "list-item-location.popover-trigger"))
-)
-# After element is found, save the html and use BeautifulSoup to parse it
-html = browser.page_source
-soup = BeautifulSoup(html, "html.parser")
-
-# div with id=resultBox has the first 10 (visible results)
-result_box = soup.find("div", {"id": "resultBox"})
-for box in result_box.find_all("div", {"class": "list-item-location popover-trigger"}):
-    address = box.find("p", {"class": "address"}).text
-    store_hours = box.find("div", {"class": "store-hours"}).text
-    location = geolocator.geocode(address)
-
-    mon_fri = store_hours.split("Fri")[1].split("Sat")[0]
-    sat = store_hours.split("Sun")[0].split("Sat")[1]
-    sun = store_hours.split("Sun")[1]
-
-    #print("Latitude = {}, Longitude = {}".format(location.latitude, location.longitude))
+    # Implicitly wait for dynamically generated addresses (requests couldn't handle the dynamically generated info from what I know)
     try:
-        command = "INSERT INTO boxes (address, lat, long, mon_fri, sat, sun) VALUES (?, ?, ?, ?, ?, ?);"
-        c.execute(command, (str(address), location.latitude, location.longitude, str(mon_fri), str(sat), str(sun)))
-        conn.commit()
-    except AttributeError:
-        pass
-    
-# div with id=resultBox has the rest of the results
-result_box2 = soup.find("div", {"id": "resultBox2"})
-for box in result_box2.find_all("div", {"class": "list-item-location popover-trigger"}):
-    address = box.find("p", {"class": "address"}).text
-    store_hours = box.find("div", {"class": "store-hours"}).text
-    location = geolocator.geocode(address)
+        element = WebDriverWait(browser, 5).until(
+            EC.presence_of_element_located((By.CLASS_NAME, "list-item-location.popover-trigger"))
+        )
+    except:
+        continue
+    # After element is found, save the html and use BeautifulSoup to parse it
+    html = browser.page_source
+    soup = BeautifulSoup(html, "html.parser")
 
-    mon_fri = store_hours.split("Fri")[1].split("Sat")[0]
-    sat = store_hours.split("Sun")[0].split("Sat")[1]
-    sun = store_hours.split("Sun")[1]
+    # div with id=resultBox has the first 10 (visible results)
+    result_box = soup.find("div", {"id": "resultBox"})
+    for box in result_box.find_all("div", {"class": "list-item-location popover-trigger"}):
+        address = box.find("p", {"class": "address"}).text
+        store_hours = box.find("div", {"class": "store-hours"}).text
+        location = geolocator.geocode(address)
 
-    #print("Latitude = {}, Longitude = {}".format(location.latitude, location.longitude))
+        mon_fri = store_hours.split("Fri")[1].split("Sat")[0]
+        sat = store_hours.split("Sun")[0].split("Sat")[1]
+        sun = store_hours.split("Sun")[1]
 
-    try:
-        command = "INSERT INTO boxes (address, lat, long, mon_fri, sat, sun) VALUES (?, ?, ?, ?, ?, ?);"
-        c.execute(command, (str(address), location.latitude, location.longitude, str(mon_fri), str(sat), str(sun)))
-        conn.commit()
-    except AttributeError:
-        pass
-    
- 
+        #print("Latitude = {}, Longitude = {}".format(location.latitude, location.longitude))
+        try:
+            command = "INSERT INTO boxes (address, lat, long, mon_fri, sat, sun) VALUES (?, ?, ?, ?, ?, ?);"
+            c.execute(command, (str(address), location.latitude, location.longitude, str(mon_fri), str(sat), str(sun)))
+            conn.commit()
+        except AttributeError:
+            pass
+        
+    # div with id=resultBox has the rest of the results
+    result_box2 = soup.find("div", {"id": "resultBox2"})
+    for box in result_box2.find_all("div", {"class": "list-item-location popover-trigger"}):
+        address = box.find("p", {"class": "address"}).text
+        store_hours = box.find("div", {"class": "store-hours"}).text
+        location = geolocator.geocode(address)
+
+        mon_fri = store_hours.split("Fri")[1].split("Sat")[0]
+        sat = store_hours.split("Sun")[0].split("Sat")[1]
+        sun = store_hours.split("Sun")[1]
+
+        #print("Latitude = {}, Longitude = {}".format(location.latitude, location.longitude))
+
+        try:
+            command = "INSERT INTO boxes (address, lat, long, mon_fri, sat, sun) VALUES (?, ?, ?, ?, ?, ?);"
+            c.execute(command, (str(address), location.latitude, location.longitude, str(mon_fri), str(sat), str(sun)))
+            conn.commit()
+        except AttributeError:
+            pass
+
 browser.quit()
 conn.close()
 

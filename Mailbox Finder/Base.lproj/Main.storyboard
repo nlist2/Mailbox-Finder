@@ -79,7 +79,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© Eric Elliott &amp; Noah List 2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frb-MF-QOa">
-                                <rect key="frame" x="121" y="791" width="172" height="14.5"/>
+                                <rect key="frame" x="84" y="789" width="246" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -87,12 +87,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="frb-MF-QOa" secondAttribute="bottom" constant="7.5" id="32s-wf-JFS"/>
+                            <constraint firstItem="frb-MF-QOa" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="4Zc-4Y-9a8"/>
                             <constraint firstItem="zEq-FU-wV5" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="FTi-Ke-j0i"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="NDk-cv-Gan" secondAttribute="trailing" constant="122" id="JvK-I5-SEE"/>
                             <constraint firstItem="zEq-FU-wV5" firstAttribute="leading" secondItem="NDk-cv-Gan" secondAttribute="leading" id="LQI-vB-maP"/>
-                            <constraint firstItem="frb-MF-QOa" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="TAO-83-XYk"/>
-                            <constraint firstItem="frb-MF-QOa" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="121" id="oou-SU-4ZL"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="frb-MF-QOa" secondAttribute="bottom" constant="9" id="XdN-gM-cEs"/>
+                            <constraint firstItem="frb-MF-QOa" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="84" id="e5d-FT-3Sy"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="4" id="pDN-7Z-cP1"/>
                             <constraint firstItem="zEq-FU-wV5" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="26" id="v5W-8P-Rld"/>
                         </constraints>
