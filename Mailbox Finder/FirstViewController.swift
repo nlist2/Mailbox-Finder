@@ -2,8 +2,8 @@
 //  FirstViewController.swift
 //  Mailbox Finder
 //
-//  Created by John List on 11/12/20.
-//  Copyright © 2020 Noah List. All rights reserved.
+//  Created by Noah List and Eric Elliott on 11/12/20.
+//  Copyright © 2020 Noah List and Eric Elliott. All rights reserved.
 //
 
 import UIKit
