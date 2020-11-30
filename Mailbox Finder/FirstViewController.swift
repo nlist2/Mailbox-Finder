@@ -49,6 +49,19 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
             self.mainMap.addAnnotation(annotation)
         }
     }
+    
+    func getCSVData() -> Array<String> {
+        do {
+            let content = try String(contentsOfFile: "/Users/johnlist/Desktop/MailboxFinder/chicago.csv")
+            let parsedCSV: [String] = content.components(
+                separatedBy: "\n"
+            ).map{ $0.components(separatedBy: ";")[1] }
+            return parsedCSV
+        }
+        catch {
+            return []
+        }
+    }
 /*
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
