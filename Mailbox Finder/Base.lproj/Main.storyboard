@@ -84,6 +84,17 @@
                                 <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="alq-aA-c3W">
+                                <rect key="frame" x="20" y="152" width="363" height="293"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="293" id="3ly-mE-Uxk"/>
+                                </constraints>
+                                <string key="text">Hello user, thank you for using Mailbox Mapper! We understand that there may be some mailboxes that we've missed (technical difficulty in translating address to coordinates), so if you've found a mailbox that we haven't mapped, please reach out to us @___ and we will put it in the database as soon as possible!</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -92,8 +103,11 @@
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="NDk-cv-Gan" secondAttribute="trailing" constant="122" id="JvK-I5-SEE"/>
                             <constraint firstItem="zEq-FU-wV5" firstAttribute="leading" secondItem="NDk-cv-Gan" secondAttribute="leading" id="LQI-vB-maP"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="frb-MF-QOa" secondAttribute="bottom" constant="9" id="XdN-gM-cEs"/>
+                            <constraint firstItem="alq-aA-c3W" firstAttribute="leading" secondItem="NDk-cv-Gan" secondAttribute="leading" id="aSh-dP-Pcu"/>
                             <constraint firstItem="frb-MF-QOa" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="84" id="e5d-FT-3Sy"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="4" id="pDN-7Z-cP1"/>
+                            <constraint firstItem="alq-aA-c3W" firstAttribute="top" secondItem="NDk-cv-Gan" secondAttribute="bottom" constant="14" id="q0S-tO-MEI"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="alq-aA-c3W" secondAttribute="trailing" constant="31" id="txd-sD-e5i"/>
                             <constraint firstItem="zEq-FU-wV5" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="26" id="v5W-8P-Rld"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Importing BeautifulSoup, Requests, and Selenium
+# Importing BeautifulSoup, Requests, Selenium, Pandas, and Geopy
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
@@ -20,20 +20,26 @@ c = conn.cursor()
 # Initializing the geolocator to convert our addresses to lat and long
 geolocator = Nominatim(user_agent="my_user_agent", timeout=3)
 
-# defining the webdriver as a headless Firefox
+# Defining the webdriver as a headless Firefox
 options = Options()
 options.headless = True
 browser = driver.Firefox(options=options)
 
-# Webdriver going to our link
+# Importing zipcodes from our csv file, uszips.csv courtesy of an online resource
 zipcodes = pd.read_csv("uszips.csv")['zip']
+zipcodes = [60637]
 
+# Iterating through each zipcode
 for zipcode in zipcodes:
+
+    # Formatting the zipcode if it isn't 5 digits
     if(len(str(zipcode)) == 3):
         zipcode = "00" + str(zipcode)
     elif(len(str(zipcode)) == 4):
         zipcode = "0" + str(zipcode)
-    usps_link = "https://tools.usps.com/find-location.htm?address=" + str(zipcode) + "&locationType=collectionbox&searchRadius=100"
+
+    # Go to zipcode link
+    usps_link = "https://tools.usps.com/find-location.htm?address=" + str(zipcode) + "&locationType=collectionbox&searchRadius=50"
     browser.get(usps_link)
     print(zipcode)
 
@@ -44,6 +50,7 @@ for zipcode in zipcodes:
         )
     except:
         continue
+
     # After element is found, save the html and use BeautifulSoup to parse it
     html = browser.page_source
     soup = BeautifulSoup(html, "html.parser")
@@ -59,7 +66,6 @@ for zipcode in zipcodes:
         sat = store_hours.split("Sun")[0].split("Sat")[1]
         sun = store_hours.split("Sun")[1]
 
-        #print("Latitude = {}, Longitude = {}".format(location.latitude, location.longitude))
         try:
             command = "INSERT INTO boxes (address, lat, long, mon_fri, sat, sun) VALUES (?, ?, ?, ?, ?, ?);"
             c.execute(command, (str(address), location.latitude, location.longitude, str(mon_fri), str(sat), str(sun)))
@@ -77,8 +83,6 @@ for zipcode in zipcodes:
         mon_fri = store_hours.split("Fri")[1].split("Sat")[0]
         sat = store_hours.split("Sun")[0].split("Sat")[1]
         sun = store_hours.split("Sun")[1]
-
-        #print("Latitude = {}, Longitude = {}".format(location.latitude, location.longitude))
 
         try:
             command = "INSERT INTO boxes (address, lat, long, mon_fri, sat, sun) VALUES (?, ?, ?, ?, ?, ?);"
