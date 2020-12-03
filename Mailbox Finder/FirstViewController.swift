@@ -9,22 +9,31 @@
 import UIKit
 import MapKit
 import CoreLocation
-import SQLite3
 
 class FirstViewController: UIViewController, CLLocationManagerDelegate {
 
     
+    // Connecting SearchBar and Map to the code
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mainMap: MKMapView!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainMap.userTrackingMode = .follow
-        // Seeting default location
-        let initialLocation = CLLocation(latitude: 41.8781, longitude: -87.6298)
-        self.centerMapOnLocation(location: initialLocation)
+        // Setting map region: From Ray Wenderlich
+        let chicago_center = CLLocation(latitude: 41.8781, longitude: -87.6298)
+        let region = MKCoordinateRegion(center: chicago_center.coordinate, latitudinalMeters: 5000, longitudinalMeters: 6000)
+        mainMap.setCameraBoundary(
+          MKMapView.CameraBoundary(coordinateRegion: region),
+          animated: true)
+        
+        // Setting Zoom range of the map
+        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 50000)
+        mainMap.setCameraZoomRange(zoomRange, animated: true)
+        
+        // Setting default location to the center of the map
+        self.centerMapOnLocation(location: chicago_center)
         
         // Search bar styling
         searchBar.barTintColor = UIColor.clear
@@ -35,45 +44,25 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         searchBar.searchTextField.layer.masksToBounds = true
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.layer.cornerRadius = 27
+        
+        // Importing our data
+        
+        
+        // Put all of the pins down
+        for item in items {
+            
+        }
     }
 
 
      func centerMapOnLocation(location: CLLocation) {
         
         // Opening animation referenced from StackOverflow
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         DispatchQueue.main.async {
             self.mainMap.setRegion(region, animated: true)
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = location.coordinate
-            self.mainMap.addAnnotation(annotation)
         }
     }
-    
-    func getCSVData() -> Array<String> {
-        do {
-            let content = try String(contentsOfFile: "/Users/johnlist/Desktop/MailboxFinder/chicago.csv")
-            let parsedCSV: [String] = content.components(
-                separatedBy: "\n"
-            ).map{ $0.components(separatedBy: ";")[1] }
-            return parsedCSV
-        }
-        catch {
-            return []
-        }
-    }
-/*
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
-    {
-
-        let location = locations.last! as CLLocation
-
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-
-        self.mainMap.setRegion(region, animated: true)
-    }
-    */
 
 }
 
