@@ -90,7 +90,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="99" id="yB2-Dd-bb2"/>
                                 </constraints>
-                                <string key="text">Hello users. Thank you for using Chicago Mailbox Mapper!  We developed this app as an attempt to simplify finding a USPS Collection Box. We hope this helps.</string>
+                                <string key="text">Hello users, thank you for using Chicago Mailbox Mapper!  We developed this app to simplify the process of finding a USPS Collection Box. We hope this helps!</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -101,7 +101,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="104" id="dj0-dP-kqD"/>
                                 </constraints>
-                                <string key="text">We understand that there may be some mailboxes that we've missed (technical difficulty in translating address to coordinates), so if you've found a mailbox that we haven't mapped, please reach out to us below and we will put it in the database as soon as possible!</string>
+                                <string key="text">We understand that there may be some mailboxes that we've missed (due to technical difficulties in translating addresses to coordinates). If you find a mailbox that we haven't mapped, please reach out to us below and we will add it to our database as soon as possible!</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
