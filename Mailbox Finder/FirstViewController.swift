@@ -9,40 +9,32 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Foundation
 
 class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
-    // Connecting SearchBar and Map to the code
-    @IBOutlet weak var searchBar: UISearchBar!
+    // Connecting Map to the code
     @IBOutlet weak var mainMap: MKMapView!
     let chicago_center = CLLocation(latitude: 41.8781, longitude: -87.6298)
-    
+    static var week_hours = "N/A"
+    static var sat_hours = "N/A"
+    static var sun_hours = "N/A"
+
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        mainMap.delegate = self
+        
+        mainMap.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
         // Setting default location to the center of the map
-        self.centerMapOnLocation(location: chicago_center)
-        
+        self.centerMapOnLocation(chicago_center, mapView: mainMap)
         
         // Setting map region: From Ray Wenderlich
-        let region = MKCoordinateRegion(center: chicago_center.coordinate, latitudinalMeters: 13500, longitudinalMeters: 30000)
-        mainMap.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region),animated: true)
+        let region = MKCoordinateRegion(center: chicago_center.coordinate, latitudinalMeters: 40000, longitudinalMeters: 20000)
+        mainMap.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region), animated: true)
         
         // Setting Zoom range of the map
-        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 70000)
+        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 75000)
         mainMap.setCameraZoomRange(zoomRange, animated: true)
-        
-        // Search bar styling
-        searchBar.barTintColor = UIColor.clear
-        searchBar.backgroundColor = UIColor.systemGray4
-        searchBar.isTranslucent = false
-        searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
-        searchBar.searchTextField.layer.cornerRadius = 18
-        searchBar.searchTextField.layer.masksToBounds = true
-        searchBar.searchTextField.backgroundColor = UIColor.white
-        searchBar.layer.cornerRadius = 27
         
         // Put all of the pins down
         var index = 0
@@ -50,25 +42,48 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: location, longitude: Data.longitudes[index])
             annotation.title = Data.addresses[index]
+            annotation.subtitle = "Collection hours: Mon-Fri: " + Data.week_hours[index] +  " Sat: " + Data.sat_hours[index] + " Sun: " + Data.sun_hours[index]
+
             mainMap.addAnnotation(annotation)
             index += 1
         }
     }
 
-     func centerMapOnLocation(location: CLLocation) {
+     func centerMapOnLocation(_ location: CLLocation, mapView: MKMapView) {
+         let regionRadius: CLLocationDistance = 1000
+         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius * 2.0, longitudinalMeters: regionRadius * 2.0)
+         mapView.setRegion(coordinateRegion, animated: true)
+     }
+    
+    class CustomAnnotationView: MKMarkerAnnotationView {
+    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
+        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+
+        canShowCallout = true
+        titleVisibility = MKFeatureVisibility.hidden
+        let mapButton = UIButton(type: .infoLight)
+        mapButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
         
-        // Opening animation referenced from StackOverflow
-        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 13500, longitudinalMeters: 30000)
-        DispatchQueue.main.async {
-            self.mainMap.setRegion(region, animated: true)
+        rightCalloutAccessoryView = mapButton
+        markerTintColor = UIColor.blue
+        glyphImage = UIImage(named: "mailboxiconfinal.png")
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        let replaced = (annotation?.title)!?.replacingOccurrences(of: " ", with: "%20", options: NSString.CompareOptions.literal, range: nil)
+
+        if let url = URL(string: "http://maps.apple.com/?address=" + replaced!){
+            UIApplication.shared.open(url)
         }
     }
     
-    func mainMap(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
-        annotationView.glyphTintColor = UIColor.blue
-        return annotationView
-    }
+    
+
+}
 
 }
 

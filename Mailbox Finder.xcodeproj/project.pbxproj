@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EE1594A5257AF52000FEEB54 /* MailboxData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1594A4257AF52000FEEB54 /* MailboxData.swift */; };
+		EE1594AF257C330400FEEB54 /* mailboxiconfinal.png in Resources */ = {isa = PBXBuildFile; fileRef = EE1594AE257C330400FEEB54 /* mailboxiconfinal.png */; };
 		EE9D647B255E26E000ED1CD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9D647A255E26E000ED1CD8 /* AppDelegate.swift */; };
 		EE9D647D255E26E000ED1CD8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9D647C255E26E000ED1CD8 /* SceneDelegate.swift */; };
 		EE9D647F255E26E000ED1CD8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9D647E255E26E000ED1CD8 /* FirstViewController.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		EE1594A4257AF52000FEEB54 /* MailboxData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailboxData.swift; sourceTree = "<group>"; };
+		EE1594AE257C330400FEEB54 /* mailboxiconfinal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mailboxiconfinal.png; path = ../../../Downloads/mailboxiconfinal.png; sourceTree = "<group>"; };
 		EE9D6477255E26E000ED1CD8 /* Mailbox Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mailbox Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE9D647A255E26E000ED1CD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE9D647C255E26E000ED1CD8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				EE1594A4257AF52000FEEB54 /* MailboxData.swift */,
 				EE9D6480255E26E000ED1CD8 /* SecondViewController.swift */,
 				EE9D6482255E26E000ED1CD8 /* Main.storyboard */,
+				EE1594AE257C330400FEEB54 /* mailboxiconfinal.png */,
 				EE9D6485255E26E300ED1CD8 /* Assets.xcassets */,
 				EE9D6487255E26E300ED1CD8 /* LaunchScreen.storyboard */,
 				EE9D648A255E26E300ED1CD8 /* Info.plist */,
@@ -238,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE1594AF257C330400FEEB54 /* mailboxiconfinal.png in Resources */,
 				EE9D6489255E26E300ED1CD8 /* LaunchScreen.storyboard in Resources */,
 				EE9D6486255E26E300ED1CD8 /* Assets.xcassets in Resources */,
 				EE9D6484255E26E000ED1CD8 /* Main.storyboard in Resources */,
@@ -450,7 +454,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.noahlist.Mailbox-Finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -470,7 +474,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.noahlist.Mailbox-Finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

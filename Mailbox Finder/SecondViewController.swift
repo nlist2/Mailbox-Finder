@@ -11,11 +11,18 @@ import MessageUI
 
 class SecondViewController: UIViewController, MFMailComposeViewControllerDelegate{
 
+    @IBOutlet weak var FeedbackButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Feedback button styling
+        FeedbackButton.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
     }
     
+    
+    // On feedback button click, launch email as a pop up with the following default values
     @IBAction func launchEmail(sender: AnyObject) {
         if MFMailComposeViewController.canSendMail() {
             let messageBody = ""
