@@ -10,30 +10,29 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class FirstViewController: UIViewController, CLLocationManagerDelegate {
+class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
-    
     // Connecting SearchBar and Map to the code
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mainMap: MKMapView!
-    
+    let chicago_center = CLLocation(latitude: 41.8781, longitude: -87.6298)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Setting map region: From Ray Wenderlich
-        let chicago_center = CLLocation(latitude: 41.8781, longitude: -87.6298)
-        let region = MKCoordinateRegion(center: chicago_center.coordinate, latitudinalMeters: 5000, longitudinalMeters: 6000)
-        mainMap.setCameraBoundary(
-          MKMapView.CameraBoundary(coordinateRegion: region),
-          animated: true)
-        
-        // Setting Zoom range of the map
-        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 50000)
-        mainMap.setCameraZoomRange(zoomRange, animated: true)
+    
+        mainMap.delegate = self
         
         // Setting default location to the center of the map
         self.centerMapOnLocation(location: chicago_center)
+        
+        
+        // Setting map region: From Ray Wenderlich
+        let region = MKCoordinateRegion(center: chicago_center.coordinate, latitudinalMeters: 13500, longitudinalMeters: 30000)
+        mainMap.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region),animated: true)
+        
+        // Setting Zoom range of the map
+        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 70000)
+        mainMap.setCameraZoomRange(zoomRange, animated: true)
         
         // Search bar styling
         searchBar.barTintColor = UIColor.clear
@@ -45,23 +44,30 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         searchBar.searchTextField.backgroundColor = UIColor.white
         searchBar.layer.cornerRadius = 27
         
-        // Importing our data
-        
-        
         // Put all of the pins down
-        for item in items {
-            
+        var index = 0
+        for location in Data.latitudes {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: location, longitude: Data.longitudes[index])
+            annotation.title = Data.addresses[index]
+            mainMap.addAnnotation(annotation)
+            index += 1
         }
     }
-
 
      func centerMapOnLocation(location: CLLocation) {
         
         // Opening animation referenced from StackOverflow
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 13500, longitudinalMeters: 30000)
         DispatchQueue.main.async {
             self.mainMap.setRegion(region, animated: true)
         }
+    }
+    
+    func mainMap(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
+        annotationView.glyphTintColor = UIColor.blue
+        return annotationView
     }
 
 }

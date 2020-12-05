@@ -27,7 +27,7 @@ browser = driver.Firefox(options=options)
 
 # Importing zipcodes from our csv file, uszips.csv courtesy of an online resource
 zipcodes = pd.read_csv("uszips.csv")['zip']
-zipcodes = [60637]
+zipcodes = [60604]
 
 # Iterating through each zipcode
 for zipcode in zipcodes:

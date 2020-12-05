@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ya-9P-byV">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ya-9P-byV">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                             </mapView>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Search for a location" translucent="NO" id="MAp-Bl-kWr">
@@ -57,23 +57,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" usesAttributedText="YES" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="20" y="70" width="100" height="47"/>
+                                <rect key="frame" x="20" y="70" width="166" height="47"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <attributedString key="attributedText">
                                     <fragment content="About">
                                         <attributes>
                                             <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <font key="NSFont" size="36" name="Futura-Medium"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All things Mailbox Mapper" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All things Chicago Mailbox Mapper" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
                                 <rect key="frame" x="20" y="121" width="272" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="oTV-ag-8IE"/>
+                                    <constraint firstAttribute="height" constant="17" id="gVG-c2-4pF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="14"/>
                                 <nil key="highlightedColor"/>
@@ -85,30 +85,76 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="alq-aA-c3W">
-                                <rect key="frame" x="20" y="152" width="363" height="293"/>
+                                <rect key="frame" x="20" y="152" width="363" height="99"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="293" id="3ly-mE-Uxk"/>
+                                    <constraint firstAttribute="height" constant="99" id="yB2-Dd-bb2"/>
                                 </constraints>
-                                <string key="text">Hello user, thank you for using Mailbox Mapper! We understand that there may be some mailboxes that we've missed (technical difficulty in translating address to coordinates), so if you've found a mailbox that we haven't mapped, please reach out to us @___ and we will put it in the database as soon as possible!</string>
+                                <string key="text">Hello users. Thank you for using Chicago Mailbox Mapper!  We developed this app as an attempt to simplify finding a USPS Collection Box. We hope this helps.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qsa-Ff-aSU">
+                                <rect key="frame" x="26" y="341" width="363" height="104"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="104" id="dj0-dP-kqD"/>
+                                </constraints>
+                                <string key="text">We understand that there may be some mailboxes that we've missed (technical difficulty in translating address to coordinates), so if you've found a mailbox that we haven't mapped, please reach out to us below and we will put it in the database as soon as possible!</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gg6-KS-dRh">
+                                <rect key="frame" x="126" y="453" width="166" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="uF0-Vr-lQV"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Leave feedback">
+                                            <attributes>
+                                                <color key="NSColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="18" name="Futura-Medium"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="launchEmailWithSender:" destination="4Nw-L8-lE0" eventType="touchUpInside" id="HIx-gh-ept"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Divider" translatesAutoresizingMaskIntoConstraints="NO" id="SU7-sa-vYO">
+                                <rect key="frame" x="2" y="259" width="410" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="kcP-yP-97F"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="qsa-Ff-aSU" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="26" id="0dG-5S-eoc"/>
                             <constraint firstItem="frb-MF-QOa" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="4Zc-4Y-9a8"/>
-                            <constraint firstItem="zEq-FU-wV5" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="FTi-Ke-j0i"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="NDk-cv-Gan" secondAttribute="trailing" constant="122" id="JvK-I5-SEE"/>
-                            <constraint firstItem="zEq-FU-wV5" firstAttribute="leading" secondItem="NDk-cv-Gan" secondAttribute="leading" id="LQI-vB-maP"/>
+                            <constraint firstItem="qsa-Ff-aSU" firstAttribute="centerX" secondItem="frb-MF-QOa" secondAttribute="centerX" id="7Zr-EQ-btq"/>
+                            <constraint firstItem="NDk-cv-Gan" firstAttribute="trailing" secondItem="Gg6-KS-dRh" secondAttribute="trailing" id="CgG-4r-g3U"/>
+                            <constraint firstItem="zEq-FU-wV5" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="EAx-CZ-hFx"/>
+                            <constraint firstItem="SU7-sa-vYO" firstAttribute="centerX" secondItem="qsa-Ff-aSU" secondAttribute="centerX" id="Hdg-Sx-LZk"/>
+                            <constraint firstItem="qsa-Ff-aSU" firstAttribute="top" secondItem="SU7-sa-vYO" secondAttribute="bottom" constant="8" id="JFh-rg-7PC"/>
+                            <constraint firstItem="zEq-FU-wV5" firstAttribute="leading" secondItem="NDk-cv-Gan" secondAttribute="leading" id="NI4-dR-tX5"/>
+                            <constraint firstItem="Gg6-KS-dRh" firstAttribute="top" secondItem="qsa-Ff-aSU" secondAttribute="bottom" constant="8" id="R57-2e-PI7"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="alq-aA-c3W" secondAttribute="trailing" constant="31" id="RgX-ad-dLN"/>
+                            <constraint firstItem="zEq-FU-wV5" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="26" id="TRa-6v-m6S"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="frb-MF-QOa" secondAttribute="bottom" constant="9" id="XdN-gM-cEs"/>
-                            <constraint firstItem="alq-aA-c3W" firstAttribute="leading" secondItem="NDk-cv-Gan" secondAttribute="leading" id="aSh-dP-Pcu"/>
+                            <constraint firstItem="NDk-cv-Gan" firstAttribute="leading" secondItem="alq-aA-c3W" secondAttribute="leading" id="YXl-Av-DAe"/>
+                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="4" id="ZSI-CN-Pdt"/>
+                            <constraint firstItem="alq-aA-c3W" firstAttribute="top" secondItem="NDk-cv-Gan" secondAttribute="bottom" constant="14" id="cAe-Hz-93E"/>
+                            <constraint firstItem="Gg6-KS-dRh" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="126" id="dH9-nH-xlB"/>
                             <constraint firstItem="frb-MF-QOa" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="84" id="e5d-FT-3Sy"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="4" id="pDN-7Z-cP1"/>
-                            <constraint firstItem="alq-aA-c3W" firstAttribute="top" secondItem="NDk-cv-Gan" secondAttribute="bottom" constant="14" id="q0S-tO-MEI"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="alq-aA-c3W" secondAttribute="trailing" constant="31" id="txd-sD-e5i"/>
-                            <constraint firstItem="zEq-FU-wV5" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="26" id="v5W-8P-Rld"/>
+                            <constraint firstItem="SU7-sa-vYO" firstAttribute="top" secondItem="alq-aA-c3W" secondAttribute="bottom" constant="8" id="fJx-co-UJb"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="NDk-cv-Gan" secondAttribute="trailing" constant="122" id="hXZ-1i-fHy"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="zEq-FU-wV5" secondAttribute="trailing" constant="228" id="iwg-3Q-aTt"/>
+                            <constraint firstItem="SU7-sa-vYO" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="2" id="vW1-wK-2xd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
@@ -138,6 +184,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Divider" width="539" height="93"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="map" catalog="system" width="128" height="113"/>
     </resources>
