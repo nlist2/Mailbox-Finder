@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17700" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,14 +21,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                             </mapView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5ya-9P-byV" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="FV3-Cg-6TP"/>
                             <constraint firstItem="5ya-9P-byV" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="Jhp-Xr-yQJ"/>
                             <constraint firstItem="5ya-9P-byV" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="-44" id="dAc-N3-ZqN"/>
                             <constraint firstItem="5ya-9P-byV" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="enP-cj-4AA"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" id="JRr-so-KI0"/>
@@ -48,11 +50,11 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" usesAttributedText="YES" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
                                 <rect key="frame" x="26" y="70" width="166" height="47"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <attributedString key="attributedText">
                                     <fragment content="About">
                                         <attributes>
-                                            <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="NSColor" systemColor="labelColor"/>
                                             <font key="NSFont" size="36" name="Futura-Medium"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -61,9 +63,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All things Chicago Mailbox Mapper" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="26" y="125" width="272" height="17"/>
+                                <rect key="frame" x="26" y="117" width="272" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="rcU-kR-nzd"/>
+                                    <constraint firstAttribute="height" constant="17" id="qWP-PF-Azd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="14"/>
                                 <nil key="highlightedColor"/>
@@ -71,20 +73,20 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© Eric Elliott &amp; Noah List 2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frb-MF-QOa">
                                 <rect key="frame" x="84" y="789" width="246" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="alq-aA-c3W">
                                 <rect key="frame" x="26" y="149" width="363" height="99"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="99" id="gmh-IH-7rp"/>
+                                    <constraint firstAttribute="height" constant="99" id="hxb-Ug-Fp3"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">Hello users, thank you for using Chicago Mailbox Mapper!  We developed this app to simplify the process of finding a USPS Collection Box. We hope this helps!</string>
                                         <attributes>
-                                            <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="NSColor" systemColor="labelColor"/>
                                             <font key="NSFont" size="14" name="HelveticaNeue-Medium"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -94,26 +96,26 @@
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="qsa-Ff-aSU">
                                 <rect key="frame" x="26" y="257" width="363" height="134"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="134" id="ITb-Ap-V2q"/>
+                                    <constraint firstAttribute="height" constant="134" id="POp-gh-CLZ"/>
                                 </constraints>
                                 <string key="text">We understand that there may be some mailboxes that we've missed (due to technical difficulties in translating addresses to coordinates). If you find a mailbox that we haven't mapped, please reach out to us below and we will add it to our database as soon as possible!</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Divider" translatesAutoresizingMaskIntoConstraints="NO" id="SU7-sa-vYO">
                                 <rect key="frame" x="0.0" y="206" width="410" height="74"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="74" id="aiT-oq-tvM"/>
+                                    <constraint firstAttribute="height" constant="74" id="IDV-pg-Ipl"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gg6-KS-dRh">
-                                <rect key="frame" x="95" y="386" width="224" height="43"/>
+                                <rect key="frame" x="95" y="399" width="224" height="43"/>
                                 <color key="backgroundColor" red="0.32423338289999998" green="0.72080159190000004" blue="0.98698371650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="xaA-5z-0gh"/>
+                                    <constraint firstAttribute="height" constant="43" id="EZZ-pq-s9b"/>
                                 </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -130,31 +132,31 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="frb-MF-QOa" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="4Zc-4Y-9a8"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" id="AbU-OI-v0D"/>
-                            <constraint firstItem="Gg6-KS-dRh" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="95" id="DvN-qk-uql"/>
-                            <constraint firstItem="qsa-Ff-aSU" firstAttribute="top" secondItem="alq-aA-c3W" secondAttribute="bottom" constant="9" id="KKW-Xz-1fB"/>
-                            <constraint firstItem="SU7-sa-vYO" firstAttribute="top" secondItem="NDk-cv-Gan" secondAttribute="bottom" constant="64" id="Kep-xE-7EE"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="NDk-cv-Gan" secondAttribute="trailing" constant="116" id="LiL-kb-gMJ"/>
-                            <constraint firstItem="qsa-Ff-aSU" firstAttribute="centerX" secondItem="Gg6-KS-dRh" secondAttribute="centerX" id="QYX-4V-SHU"/>
-                            <constraint firstItem="zEq-FU-wV5" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="26" id="RJj-56-Nh2"/>
-                            <constraint firstItem="Gg6-KS-dRh" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" constant="386" id="SXt-1G-qgz"/>
-                            <constraint firstItem="zEq-FU-wV5" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="26" id="X5E-zD-7q7"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="leading" secondItem="alq-aA-c3W" secondAttribute="leading" id="XbO-ER-hNB"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="frb-MF-QOa" secondAttribute="bottom" constant="9" id="XdN-gM-cEs"/>
-                            <constraint firstItem="alq-aA-c3W" firstAttribute="leading" secondItem="qsa-Ff-aSU" secondAttribute="leading" id="YtI-db-B7q"/>
-                            <constraint firstItem="frb-MF-QOa" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="84" id="e5d-FT-3Sy"/>
-                            <constraint firstItem="alq-aA-c3W" firstAttribute="trailing" secondItem="qsa-Ff-aSU" secondAttribute="trailing" id="eb5-Pb-fLd"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="zEq-FU-wV5" secondAttribute="trailing" constant="222" id="jQh-0t-Au3"/>
-                            <constraint firstItem="Gg6-KS-dRh" firstAttribute="centerX" secondItem="frb-MF-QOa" secondAttribute="centerX" id="jV3-x5-Fgh"/>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="SU7-sa-vYO" secondAttribute="trailing" constant="4" id="jnw-TR-5KC"/>
-                            <constraint firstItem="SU7-sa-vYO" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="lrw-IV-j0F"/>
-                            <constraint firstItem="zEq-FU-wV5" firstAttribute="leading" secondItem="NDk-cv-Gan" secondAttribute="leading" id="nr4-Pb-ngb"/>
-                            <constraint firstItem="alq-aA-c3W" firstAttribute="top" secondItem="NDk-cv-Gan" secondAttribute="bottom" constant="7" id="qfe-x9-fpn"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="NDk-cv-Gan" secondAttribute="trailing" constant="116" id="1uo-9e-oIJ"/>
+                            <constraint firstItem="frb-MF-QOa" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="4Zc-4Y-9a8"/>
+                            <constraint firstItem="qsa-Ff-aSU" firstAttribute="top" secondItem="alq-aA-c3W" secondAttribute="bottom" constant="9" id="4g9-dN-BLL"/>
+                            <constraint firstItem="Gg6-KS-dRh" firstAttribute="top" secondItem="qsa-Ff-aSU" secondAttribute="bottom" constant="8" id="D01-cH-ITg"/>
+                            <constraint firstItem="alq-aA-c3W" firstAttribute="leading" secondItem="qsa-Ff-aSU" secondAttribute="leading" id="Hef-aB-89S"/>
+                            <constraint firstItem="zEq-FU-wV5" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="26" id="Iat-2o-oMx"/>
+                            <constraint firstItem="SU7-sa-vYO" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="LAA-UA-9cx"/>
+                            <constraint firstItem="SU7-sa-vYO" firstAttribute="top" secondItem="NDk-cv-Gan" secondAttribute="bottom" constant="72" id="Mlu-UQ-vVr"/>
+                            <constraint firstItem="qsa-Ff-aSU" firstAttribute="centerX" secondItem="Gg6-KS-dRh" secondAttribute="centerX" id="NhF-dP-A9S"/>
+                            <constraint firstItem="alq-aA-c3W" firstAttribute="top" secondItem="NDk-cv-Gan" secondAttribute="bottom" constant="15" id="PMi-gj-Vmv"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="frb-MF-QOa" secondAttribute="bottom" constant="9" id="XdN-gM-cEs"/>
+                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" id="bpO-aW-rnt"/>
+                            <constraint firstItem="frb-MF-QOa" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="84" id="e5d-FT-3Sy"/>
+                            <constraint firstItem="zEq-FU-wV5" firstAttribute="leading" secondItem="NDk-cv-Gan" secondAttribute="leading" id="f8d-Uo-bHA"/>
+                            <constraint firstItem="Gg6-KS-dRh" firstAttribute="centerX" secondItem="frb-MF-QOa" secondAttribute="centerX" id="jgL-1G-kBl"/>
+                            <constraint firstItem="Gg6-KS-dRh" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="95" id="nff-ej-GVH"/>
+                            <constraint firstItem="NDk-cv-Gan" firstAttribute="leading" secondItem="alq-aA-c3W" secondAttribute="leading" id="pJ5-3T-UqQ"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="SU7-sa-vYO" secondAttribute="trailing" constant="4" id="sDg-R1-7zy"/>
+                            <constraint firstItem="alq-aA-c3W" firstAttribute="trailing" secondItem="qsa-Ff-aSU" secondAttribute="trailing" id="vCR-wd-03Q"/>
+                            <constraint firstItem="zEq-FU-wV5" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="26" id="xcH-r0-Cix"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="zEq-FU-wV5" secondAttribute="trailing" constant="222" id="zXs-8T-6r6"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Info" image="info.circle" catalog="system" id="cPa-gy-q4n"/>
                     <connections>
@@ -187,6 +189,15 @@
     <resources>
         <image name="Divider" width="539" height="93"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
-        <image name="map" catalog="system" width="128" height="113"/>
+        <image name="map" catalog="system" width="128" height="110"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
