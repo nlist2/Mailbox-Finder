@@ -15,7 +15,7 @@ Our next step was to use the information in our SQLite database to display each 
  
 # Application Design
 ## UI Design
-We used a Tabbed-App design in order to avoid overwhelming the user - the default Tab holds the Map and all of its properties, and the “Info” tab allows the user to directly email us from the app, if they have any issues. More clearly, once a user has clicked/tapped on one of our pins, a pop-up appears that presents the specific Mailboxes’ address and collection hours, along with an “i” icon that launches an information alert. When this alert is launched, the user has the option to click “Directions”, which thereby takes the user to the Maps app and presents directions for them to get to their specified collection Box.
+We used a Tabbed-App design in order to avoid overwhelming the user - the default Tab holds the Map and all of its properties, and the “Info” tab allows the user to directly email us from the app, if they have any issues. More clearly, once a user has clicked/tapped on one of our pins, a pop-up appears that presents the specific Mailboxes’ address and collection hours, along with an “i” icon that launches an information alert. When this alert is launched, the user has the option to click “Directions”, which then takes the user to the Maps app and presents directions for them to get to their specified collection Box.
  
 ## Code Design
 ### FirstViewController.swift
@@ -31,4 +31,4 @@ Holds all of our collection box data as a struct.
 Our scrape file, uspsscrape.py, uses Selenium to send a request to USPS’ website and waits until the collection box results are dynamically generated. Then, we use BeautifulSoup to parse the HTML that we’ve just received, GeoPy to convert this data to longitude and latitude, and SQLite3 to send this information to our database, collectionBoxes.db. Importantly, our scrape iterates through the array “zipcodes”, which originally held all ~40000 US Zipcodes, but now simply holds all of Chicago’s zip codes/only zip codes that we wanted. For each zip code, our Selenium driver sends a GET request to the USPS page that returns results for only that Zipcode.
  
 # Caveats
-Our main bug is that, sometimes, our pins revert back to normal styling (our custom icon goes back to the default icon) when the map has been updated. We worked hard to fix this issue, and found that it had something to do with reuseIdentifiers, but we weren’t able to completely fix it.
+Our main bug is that sometimes, our pins revert back to normal styling (our custom icon goes back to the default icon) when the map has been updated. We worked hard to fix this issue, and found that it had something to do with reuseIdentifiers, but we weren’t able to completely fix it.
