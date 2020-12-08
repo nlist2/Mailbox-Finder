@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 import Foundation
 
+// Note some code has been referenced from Apple's Documentation, Ray Wenderlich and StackOverflow, as noted below
 class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     // Connecting Map to the code
@@ -56,7 +57,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     
 }
 
+// Overriding classic annotation view so that we can customize
 class CustomAnnotationView: MKMarkerAnnotationView{
+    // Override code referenced from Apple's documentation
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         canShowCallout = true

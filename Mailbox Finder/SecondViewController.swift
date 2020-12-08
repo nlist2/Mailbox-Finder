@@ -18,7 +18,6 @@ class SecondViewController: UIViewController, MFMailComposeViewControllerDelegat
         
         // Feedback button styling
         FeedbackButton.layer.cornerRadius = 5
-        // Do any additional setup after loading the view.
     }
     
     
