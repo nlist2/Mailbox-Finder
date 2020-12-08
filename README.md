@@ -29,14 +29,14 @@ Swift allowed us to visualize our mailboxes in iOS application form.
 - **CoreLocation** - Allows for user's location to be shared and broadcasted on the map
  
 # Usage/File Hierarchy
-**\MailboxFinder\Mailbox Finder\**
+**\MailboxFinder\Mailbox Finder**
    - Assets.xcassets\ contains the app’s icons and other related files
    - Base.lproj\ contains storyboard files used for UI modifications
    - FirstViewController.swift contains code for map and location functionality
    - Info.plist defines that we want the user’s location
    - MailboxData.swift contains struct of our mailbox data
    - SecondViewController.swift contains code for the feedback page of the app
-**\MailboxFinder\ScrapeAndDatabase\**
+**\MailboxFinder\ScrapeAndDatabase**
    - chicago.csv contains all Chicago mailbox data
    - collectionBoxes.db database generated with SQLite (accessible with third-party   software like TablePlus or by the command line using ‘sqlite3 collectionBoxes.db’)
    - uspsscrape.py contains python code necessary for scrape
