@@ -1,4 +1,7 @@
 # Chicago Mailbox Mapper - README.md
+
+Video: https://youtu.be/iIgfFYFReX8
+
 CS50 Final Project - iOS application that maps out all of USPS' collection boxes.
  
 # Overview
